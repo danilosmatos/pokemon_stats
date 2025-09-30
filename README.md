@@ -1,52 +1,45 @@
-# 5W1H
+# 📑 Estrutura do README.md com 5W1H (Web Scraping de Dados Pokémon)
 
-## What 
+---
 
-<p>Uma análise comparativa das estatísticas de combate dos Pokémon disponíveis no dataset do Kaggle. A comparação abrange: </p>
-<p>Estatísticas de HP, Ataque, Defesa, Ataque especial e Velocidade</p>
+## 1. What (O que é?)
 
-## Who
+Um projeto em Python para coletar automaticamente stats de Pokemon do site [PokemonDB](https://pokemondb.net). O projeto utiliza Requests e BeautifulSoup para web scraping e Pandas para o tratamento e exportação dos dados para arquivos CSV.
 
-<p>Quem se beneficia da análise</p>
-<ol>
-<li>Jogadores competitivos</li>
-<li>Fãs de Pokémon</li>
-<li>Estudantes</li>
-</ol>
+O projeto possui dois modos de uso:
 
-## Why
+* Modo Individual: Busca e salva os stats de um Pokemon individualmente em um arquivo CSV.
 
-<p>Motivação para comparar as estatísticas</p>
-<ol>
-<li>Identificar quais tipos de Pokémon são naturalmente mais fortes</li>
-<li>Entender o balanceamento do jogo</li>
-<li>Montar times competitivos eficientes</li>
-</ol>
+* Modo Pokedex de Jogos: Permite selecionar a pokedex de um jogo (ou a pokedex completa) e fazer o web scrapping dos stats de todos os Pokémon daquela lista, os organizando em um único arquivo CSV.
 
-## When
+## 2. Why (Por que?)
 
-<p>Momento ideal para análise</p>
-<ol>
-<li>Antes de montar um time competitivo</li>
-<li>Ao estudar meta-game de gerações</li>
-</ol>
+O objetivo é praticar a automação de coleta de dados, a manipulação de dados com Pandas e a organização em um formato de fácil consulta.
 
-## Where
+## 3. Who (Quem participa?)
 
-<p>Onde é realizada as comparações</p>
-<ol>
-<li>Em python utilizando a lib pandas</li>
-<li>Forma de visualização com tabelas gerados pela Lib</li>
-</ol>
+* Desenvolvedores (Iniciantes/Intermediários): Que desejam aprender sobre scraping e coleta de dados em lote.
+* Fãs de Pokémon/Analistas de Dados: Usuários que precisam dos dados de stats para uso próprio ou projetos.
 
-# How
+## 4. Where (Onde será usado?)
 
-<p>Análise Básica</p>
-<ol>
-<li>Identificar valores mínimos e máximos de status</li>
-<li>Comparar Grupos (Média de Ataque por tipo)</li>
-<li>Comparação de HP entre tipos defensivos e ofensivos</li>
-</ol>
+* O script pode ser executado em qualquer ambiente que suporte Python 3 e suas dependências (Windows, Linux, macOS).
+* Os resultados são salvos em arquivos CSV em `src/pokemon/individual` para operações individuais e `src/pokemon/jogo` para operações da pokedex de jogos completa, prontos para serem usados em qualquer software de análise de dados.
 
-# Dataset .csv utilizando
-<https://www.kaggle.com/datasets/abcsds/pokemon>
+## 5. When (Quando usar?)
+
+Sempre que necessário para obter os stats de um pokemon especifico no caso do uso individual, caso contrário obter datasets pelo uso do de jogos completos
+
+## 6. How (Como funciona?)
+
+1.  O usuário clona o repositório.
+
+2.  Instala as dependências (`pip install -r requirements.txt`).
+
+3.  Escolha entre scrapper_jogo.py e scrapper_pokemon.py, decidindo o jogo/pokemon desejado
+
+4.  O programa então, por meio da biblioteca Request solicita os dados brutos da página
+    que BeautifulSoup analisa e converte os dados para um formato entendivel para python.
+
+5.  Assim é convertido para um dataframe do Pandas e o resultado final é convertido novamente
+    para um arquivo CSV.
