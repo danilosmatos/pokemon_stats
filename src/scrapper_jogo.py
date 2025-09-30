@@ -3,10 +3,7 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 import os 
 
-# --- CONFIGURAÇÕES DE CAMINHOS ---
-# O diretório onde todos os arquivos CSV serão salvos.
-DIR = "src/pokemons"
-# URL base para a lista de Pokémon
+DIR = "src/pokemon/jogo"
 BASE_URL = "https://pokemondb.net/pokedex/"
 
 

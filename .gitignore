@@ -4,4 +4,6 @@
 src/pokemon/**
 
 # Nega a ignorância para qualquer arquivo .gitkeep em qualquer lugar
+!/src/pokemon/jogo
+!/src/pokemon/individual
 !**/.gitkeep

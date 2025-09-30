@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 import os 
 
-arquivo_destino = "src/pokemons" 
+DIR = "src/pokemon/individual" 
 
 def web_scrapping(name_poke):
     og_name = name_poke
@@ -64,7 +64,7 @@ def web_scrapping(name_poke):
         columns=['Stat', 'Valor Base']
     )
     
-    output_path = os.path.join(arquivo_destino, csv_filename)
+    output_path = os.path.join(DIR, csv_filename)
     df.to_csv(output_path, index=False)
     
     print(f" Dados salvos com sucesso em: {output_path}")
