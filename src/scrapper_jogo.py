@@ -6,8 +6,6 @@ import os
 DIR = "src/pokemon/jogo"
 BASE_URL = "https://pokemondb.net/pokedex/"
 
-
-# --- Mapeamento de Jogos ---
 GAME_NAMES = {
     "National Dex (Gen 9)": "national-dex", 
     "Scarlet & Violet (Paldea)": "scarlet-violet",
@@ -29,6 +27,7 @@ GAME_NAMES = {
     "Gold, Silver & Crystal (Johto)": "gold-silver-crystal",
     "Red, Blue & Yellow (Kanto)": "red-blue-yellow",
 }
+
 # PEga o link do jogo e lista todos os pokemons que tem nele
 def scrape_pokemon_list(game_name):    
     if game_name == "national-dex":

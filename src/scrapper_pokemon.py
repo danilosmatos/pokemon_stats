@@ -4,13 +4,14 @@ import pandas as pd
 import os 
 
 DIR = "src/pokemon/individual" 
+BASE_URL = f"https://pokemondb.net/pokedex/"
 
 def web_scrapping(name_poke):
     og_name = name_poke
     name_poke_url = name_poke.strip().lower().replace(' ', '-').replace('.', '').replace("'", "")
     csv_filename = f"{name_poke_url}.csv"
     
-    url = f"https://pokemondb.net/pokedex/{name_poke_url}"
+    url = BASE_URL + name_poke
     
     try:
         response = rq.get(url, timeout=10)
