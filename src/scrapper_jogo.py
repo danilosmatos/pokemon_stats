@@ -17,7 +17,7 @@ GAME_NAMES = {
     "Sun & Moon (Alola)": "sun-moon",
     "Omega Ruby & Alpha Sapphire (Hoenn)": "omega-ruby-alpha-sapphire",
     "X & Y (Kalos)": "x-y",
-    "Black 2 & White 2 (Unova)": "black-2-white-2",
+    "Black 2 & White 2 (Unova)": "black-white-2",
     "Black & White (Unova)": "black-white",
     "HeartGold & SoulSilver (Johto)": "heartgold-soulsilver",
     "Platinum (Sinnoh)": "platinum",
@@ -32,7 +32,8 @@ GAME_NAMES = {
 def scrape_pokemon_list(game_name):    
     if game_name == "national-dex":
         url = BASE_URL + "all"
-        print("Acessando National Dex Completa...")
+        print("Acessando Pokedex Completa")
+    
     else:
         url = BASE_URL + "game/" + game_name
         print(f"Acessando Pokedex de Jogo: {url}")
@@ -73,7 +74,7 @@ def get_pokemon_stats(poke_name):
         response = rq.get(url, timeout=10)
         response.raise_for_status()
     except rq.exceptions.RequestException:
-        print(f"Pulando '{og_name}': Não foi possível acessar a URL ou o Pokémon não existe.")
+        print(f"Pulando '{og_name}': Não foi possível acessar a URL.")
         return None
     
     soup = bs(response.content,'html.parser')
@@ -102,25 +103,27 @@ def get_pokemon_stats(poke_name):
         
     return poke_stats_data
 
-def scrape_all_stats(game_name, game_slug):
-    output_filename = f"pokemon_stats_{game_slug}.csv"
+def scrape_stats(game_name, game_link_name):
+    
+    output_filename = f"pokemon_stats_{game_link_name}.csv"
     output_path = os.path.join(DIR, output_filename)    
+    
     # Verifica se o csv já existe
     if os.path.exists(output_path):
         print("\n=======================================================")
         print(f"O arquivo para '{game_name}' já existe!")
         overwrite = input("Deseja sobrescrever o arquivo existente? (s/n): ").strip().lower()
         if overwrite != 's':
-            print("Operação cancelada. Saindo.")
+            print("Saindo.")
             return
 
-    pokemon_list = scrape_pokemon_list(game_slug)
+    pokemon_list = scrape_pokemon_list(game_link_name)
 
     print(f"\nLista de {len(pokemon_list)} Pokemons de '{game_name}'...")
     all_stats_data = []
     
     for i, name in enumerate(pokemon_list):
-        print(f"  [{i+1}/{len(pokemon_list)}] Raspando stats para: {name}")
+        print(f"  [{i+1}/{len(pokemon_list)}] Scrapping stats para: {name}")
         stats = get_pokemon_stats(name)
         
         if stats:
@@ -143,7 +146,7 @@ def main():
     print("="*40)
     
     game_names = list(GAME_NAMES.keys())
-    print("\nEscolha qual Pokedex você gostaria de raspar:")
+    print("\nEscolha qual Pokedex você gostaria de fazer o scrapping:")
     
     for i, name in enumerate(game_names):
         print(f"  {i+1:02d}. {name}")
@@ -171,7 +174,7 @@ def main():
             print(f"Ocorreu um erro inesperado: {e}")
             return
 
-    scrape_all_stats(selected_game_name, selected_game_slug)
+    scrape_stats(selected_game_name, selected_game_slug)
 
 if __name__ == '__main__':
     main()
