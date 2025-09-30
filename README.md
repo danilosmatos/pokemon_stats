@@ -1,4 +1,4 @@
-# 📑 Estrutura do README.md com 5W1H (Web Scraping de Dados Pokémon)
+# 📑 5W1H
 
 ---
 
@@ -43,3 +43,9 @@ Sempre que necessário para obter os stats de um pokemon especifico no caso do u
 
 5.  Assim é convertido para um dataframe do Pandas e o resultado final é convertido novamente
     para um arquivo CSV.
+
+Integrantes:
+[Antônio Gabriel](https://github.com/Anton-Gabriel-code) | [Danilo Soares de Matos](https://github.com/danilosmatos) | [Eudes de Oliveira Rocha](https://github.com/eudesolv)
+
+Professor:
+[Marcos Vinícius](https://github.com/marcmec)
