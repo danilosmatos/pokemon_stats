@@ -47,10 +47,8 @@ def web_scrapping(name_poke):
     
     return poke_stats
 
-# --- FUNÇÃO DE MENU E EXECUÇÃO ---
-
-def menu_principal():
-    print("\n--- POKÉMON STATS SCRAPER ---")
+def main():
+    print("\n--- SCRAPER DE STATUS POKEMON ---")
     while True:
         try:
             name_input = input("Digite o nome do Pokémon ou 0 para sair: ")
@@ -77,4 +75,4 @@ def menu_principal():
             print("Tente novamente.")
 
 if __name__ == '__main__':
-    menu_principal()
+    main()
