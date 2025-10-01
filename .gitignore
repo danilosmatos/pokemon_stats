@@ -1,9 +1,9 @@
 .venv/
+src/__pycache__/*
 
-# Ignora *todo* o conteúdo dentro de src/pokemon (recursivamente)
 src/pokemon/**
 
-# Nega a ignorância para qualquer arquivo .gitkeep em qualquer lugar
 !/src/pokemon/jogo
 !/src/pokemon/individual
 !**/.gitkeep
+
