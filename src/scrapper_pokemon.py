@@ -68,7 +68,7 @@ def web_scrapping(name_poke):
     output_path = os.path.join(DIR, csv_filename)
     df.to_csv(output_path, index=False)
     
-    print(f" Dados salvos com sucesso em: {output_path}")
+    print(f"\nDados salvos em: {output_path}")
     return poke_stats_data 
 
 
