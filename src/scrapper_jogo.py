@@ -28,7 +28,7 @@ GAME_NAMES = {
     "Red, Blue & Yellow (Kanto)": "red-blue-yellow",
 }
 
-# PEga o link do jogo e lista todos os pokemons que tem nele
+# Pega o link do jogo e lista todos os pokemons que tem nele
 def scrape_pokemon_list(game_name):    
     if game_name == "national-dex":
         url = BASE_URL + "all"
@@ -140,7 +140,7 @@ def scrape_stats(game_name, game_link_name):
     print(f"  -> {output_path}")
     print("="*40)
 
-def main():
+def benchmark():
     print("\n"+"="*40)
     print("--- SCRAPER DE STATS POKÉMON POR JOGO ---")
     print("="*40)
@@ -177,4 +177,4 @@ def main():
     scrape_stats(selected_game_name, selected_game_slug)
 
 if __name__ == '__main__':
-    main()
+    benchmark()

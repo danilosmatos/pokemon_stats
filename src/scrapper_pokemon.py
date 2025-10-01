@@ -72,7 +72,7 @@ def web_scrapping(name_poke):
     return poke_stats_data 
 
 
-def main():
+def benchmark():
     print("\n--- SCRAPER DE STATUS POKEMON ---")
 
     while True:
@@ -101,4 +101,4 @@ def main():
             print("Tente novamente.")
 
 if __name__ == '__main__':
-    main()
+    benchmark()
