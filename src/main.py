@@ -1,15 +1,23 @@
 from scrapper_jogo import scrape_pokemon_list as game
 from scrapper_pokemon import web_scrapping as pokemon
 
-
 def main():
     print("="*60+"\n"+"Bem - Vindo!!")
     print("\nDeseja consultar a pokedex de jogos inteiros, de pokémons individuais ou sair? ")
     print("\n(1) Pokedex de jogos completos \n\n(2) Pokémons individuais")
     print("\n(0) Sair\n"+"="*60)
     while True:
-        choice = int(input("\nDigite 1 ou 2 para escolher ou 0 para sair do programa): "))
-        if choice == 0:
+        choice = 3
+        try:
+            choice = int(input("\nDigite 1 ou 2 para escolher ou 0 para sair do programa): "))
+        except ValueError:
+            print("\nERRO: Digite um número")
+        if choice < 0 or choice > 3:
+            print("\nERRO: Digite um número válido")
+        elif choice == 3:
+            pass
+        
+        elif choice == 0:
             print("\nSaindo do programa.\n")
             break
         elif choice == 1:
